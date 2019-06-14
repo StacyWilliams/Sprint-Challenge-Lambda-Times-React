@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import Card from './Card';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Cards = props => {
   return (
     <div className="cards-container">
-      {props.cards.map(card => {return <Card card = {card} /> })}
+      {props.cards.map((card,index) =>  <Card hey={index} card = {card} /> )}
     </div>
   )
 }
-
+  Cards.propTypes = {
+   cards: PropTypes.shape({
+    headline: PropTypes.string,
+    tab: PropTypes.string,
+    img:PropTypes.string,
+    author:PropTypes.string
+  })
+};
 // Make sure you include prop types for all of your incoming props
 
 export default Cards;
